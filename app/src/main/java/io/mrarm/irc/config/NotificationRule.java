@@ -122,7 +122,7 @@ public class NotificationRule {
             return false;
         boolean isNotice = message.getType() == MessageInfo.MessageType.NOTICE;
         for (AppliesToEntry entry : appliesTo) {
-            if (entry.server != null && entry.server != conn.getServerUUID())
+            if (entry.server != null && !entry.server.equals(conn.getServerUUID()))
                 continue;
             if (channel == null) {
                 if ((isNotice && !entry.matchDirectNotices) ||
